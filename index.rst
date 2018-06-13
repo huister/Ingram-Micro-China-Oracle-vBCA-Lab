@@ -2,8 +2,8 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Deck
-  :name: _Deck
+  :caption: Slides
+  :name: _OracleDeck
   :hidden:
 
   OracleDeck/aaa
@@ -85,9 +85,3 @@ Create your base image of VM. After you create this VM , you can clone VMs base 
 The only thing you need to modify is host name to IP address . Means you need to modify your /etc/hosts point to the right IP address.
 
 If you have any question, you can send a email to albert.chen@nutanix.com. I will happy to teach you how to setup a environment or provide the base VM image to you.
-
-Presentation Slide
-++++++++++++++++++
-The presentation slide is here -
-
-https://github.com/marincop/OracleHandson/tree/master/appendix/OracleSlide.html
