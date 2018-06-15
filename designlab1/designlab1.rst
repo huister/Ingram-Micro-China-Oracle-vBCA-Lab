@@ -10,13 +10,9 @@ Introduction
 
 **Basic Situation & Requirements -**
 
-- Customer “City of Dreamland” is running Oracle databases for several packaged applications like EBS, OTM, etc.
-The current have four major databases “ERP” ,” BIDW”, “OTM”,”PLN”.
+- Customer “City of Dreamland” is running Oracle databases for several packaged applications like EBS, OTM, etc.The current have four major databases “ERP” ,” BIDW”, “OTM”,”PLN”.
 
-- Customer current using “HP ProLiant DL380 G7” for their ERP and PLN System using 1 socket with 12 cores
-(Intel Xeon Processor X5680” CPU) .”BIDW” using old server “IBM System x3755” with 4 socket total 8 core
-(Dual-Core Intel Xeon Processor 7040). “OTM” Server also using the old server “IBM System x3755” with 2 socket total 4 core
-(Dual-Core Intel Xeon Processor 7040)
+- Customer current using “HP ProLiant DL380 G7” for their ERP and PLN System using 1 socket with 12 cores(Intel Xeon Processor X5680” CPU) .”BIDW” using old server “IBM System x3755” with 4 socket total 8 core (Dual-Core Intel Xeon Processor 7040). “OTM” Server also using the old server “IBM System x3755” with 2 socket total 4 core (Dual-Core Intel Xeon Processor 7040)
 
 - ERP database database is 2 TB , BIDW database size is 4TB, OTM database is 500GB , and PLN database is 1TB.
 
@@ -26,9 +22,7 @@ The current have four major databases “ERP” ,” BIDW”, “OTM”,”PLN�
 
 - All the Oracle Server Edition is Enterprise Edition , and license is base on core license
 
-- Customer is major concerned about Oracle licensing when virtualized and is under license pressure.
-Customer wants Nutanix to provide a quote and proposal to show how they can virtualize and minimize the
-license exposure to Oracle.
+- Customer is major concerned about Oracle licensing when virtualized and is under license pressure. Customer wants Nutanix to provide a quote and proposal to show how they can virtualize and minimize the license exposure to Oracle.
 
 - Saving the cost will be the first priority target in this project
 
@@ -39,25 +33,15 @@ license exposure to Oracle.
 
 - Customer current use EMC CX4-120 storage and also implement EMC local protect solution SNAPVIEW
 
-- ERP system also need increase RPO, they using EMC snapshot to protect their production database.
-They snapshot the database every 3 hrs. Due to EMC snapshot the maximum snapshot can keep 8 copies.
-Their target is increase the RPO within one hour
+- ERP system also need increase RPO, they using EMC snapshot to protect their production database. They snapshot the database every 3 hrs. Due to EMC snapshot the maximum snapshot can keep 8 copies. Their target is increase the RPO within one hour
 
-- Customer ERP production database is running on Physical Linux OS and
- protect the HA with Linux Native Cluster , and customer want increase
- the RTO from 10 minutes to 1 minutes. Other systems do not need so high RTO ,
- at least 30 minutes for requirement.
+- Customer ERP production database is running on Physical Linux OS and protect the HA with Linux Native Cluster , and customer want increase the RTO from 10 minutes to 1 minutes. Other systems do not need so high RTO , at least 30 minutes for requirement.
 
 **DR Requirement –**
 
-- All this four Oracle database will need DR solutions ,
-The RPO for PLN ,OTM, BIDW database is 1hrs.
-The ERP system because it’s most important ,
-so RPO should be less than 15 minutes
+- All this four Oracle database will need DR solutions , The RPO for PLN ,OTM, BIDW database is 1hrs. The ERP system because it’s most important , so RPO should be less than 15 minutes
 
-- The Bandwidth is not limitation for customer ,
-who have a dedicate and enough bandwidth network between
-two datacenter within 5 ms round-trip latency.
+- The Bandwidth is not limitation for customer , who have a dedicate and enough bandwidth network between two datacenter within 5 ms round-trip latency.
 
 
 Requirements
