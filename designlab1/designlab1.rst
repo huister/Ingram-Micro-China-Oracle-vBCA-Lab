@@ -59,7 +59,8 @@ Requirements
 Tools for sizing
 ++++++++++++++++
 
-- CPU Benchmark https://www.spec.org/cpu2006/
+- CPU Benchmark
+https://www.spec.org/cpu2006/
 
 - SAP SD Standard Performance Tests
 http://www.sap.com/solution/benchmark/measuring.html
