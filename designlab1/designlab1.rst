@@ -1,143 +1,120 @@
 .. Adding labels to the beginning of your lab is helpful for linking to the lab from other pages
-.. _example_lab_3:
+.. _designlab1:
 
--------------
-Example Lab 3
--------------
+----------------------------
+Oracle on Nutanix Design Lab
+----------------------------
 
-Overview
+Introduction
+++++++++++++
+
+**Basic Situation & Requirements -**
+
+- Customer “City of Dreamland” is running Oracle databases for several packaged applications like EBS, OTM, etc.
+The current have four major databases “ERP” ,” BIDW”, “OTM”,”PLN”.
+
+- Customer current using “HP ProLiant DL380 G7” for their ERP and PLN System using 1 socket with 12 cores
+(Intel Xeon Processor X5680” CPU) .”BIDW” using old server “IBM System x3755” with 4 socket total 8 core
+(Dual-Core Intel Xeon Processor 7040). “OTM” Server also using the old server “IBM System x3755” with 2 socket total 4 core
+(Dual-Core Intel Xeon Processor 7040)
+
+- ERP database database is 2 TB , BIDW database size is 4TB, OTM database is 500GB , and PLN database is 1TB.
+
+- The working set for the ERP, PLN, OTM system is 30% daily , BIDW system just 10 % of daily change.
+
+- Customer do not familiar with virtualization technology , any kind of  hypervisor is acceptable.
+
+- All the Oracle Server Edition is Enterprise Edition , and license is base on core license
+
+- Customer is major concerned about Oracle licensing when virtualized and is under license pressure.
+Customer wants Nutanix to provide a quote and proposal to show how they can virtualize and minimize the
+license exposure to Oracle.
+
+- Saving the cost will be the first priority target in this project
+
+- Nutanix had already got the Oracle performance report “AWR” from customer, and parsed performance data (In the appendix “A”)
+
+
+**HA Requirement –**
+
+- Customer current use EMC CX4-120 storage and also implement EMC local protect solution SNAPVIEW
+
+- ERP system also need increase RPO, they using EMC snapshot to protect their production database.
+They snapshot the database every 3 hrs. Due to EMC snapshot the maximum snapshot can keep 8 copies.
+Their target is increase the RPO within one hour
+
+- Customer ERP production database is running on Physical Linux OS and
+ protect the HA with Linux Native Cluster , and customer want increase
+ the RTO from 10 minutes to 1 minutes. Other systems do not need so high RTO ,
+ at least 30 minutes for requirement.
+
+**DR Requirement –**
+
+- All this four Oracle database will need DR solutions ,
+The RPO for PLN ,OTM, BIDW database is 1hrs.
+The ERP system because it’s most important ,
+so RPO should be less than 15 minutes
+
+- The Bandwidth is not limitation for customer ,
+who have a dedicate and enough bandwidth network between
+two datacenter within 5 ms round-trip latency.
+
+
+Requirements
+++++++++++++
+
+- Size only for Prod and provide a deployment architecture
+
+- Provide the design that met customer RTO/RPO requirement
+
+- Software licenses need be considered
+
+- DR solution setup
+
+
+Tools for sizing
+++++++++++++++++
+
+- CPU Benchmark https://www.spec.org/cpu2006/
+
+- SAP SD Standard Performance Tests
+http://www.sap.com/solution/benchmark/measuring.html
+
+- Nutanix Sizer
+https://services.nutanix.com/#/
+
+- Mindtickle Oracle Training (Nutanix Employee Only)
+
+Appendix (Server information)
 ++++++++
 
-Here is where we provide a high level description of what the user will be doing during this module. We want to frame why this content is relevant to an SE/Services Consultant and what we expect them to understand after completing the lab.
 
-Creating a VM
-+++++++++++++
+**- ERP Server**
 
-Example markup for creating a VM in Prism Element:
+.. figure:: images/ERP1.png
 
-  In **Prism > VM > Table**, click **+ Create VM**.
+.. figure:: images/ERP2.png
 
-  Fill out the following fields and click **Save**:
+**- BIDW Server**
 
-  - **Name** - Xtract-VM
-  - **Description** - Xtract for VMs
-  - **vCPU(s)** - 2
-  - **Number of Cores per vCPU** - 2
-  - **Memory** - 4 GiB
-  - Select **+ Add New Disk**
+.. figure:: images/BIDW1.png
 
-    - **Operation** - Clone from Image Service
-    - **Image** - Xtract-VM
-    - Select **Add**
-  - Remove **CD-ROM** Disk
-  - Select **Add New NIC**
+.. figure:: images/BIDW2.png
 
-    - **VLAN Name** - Primary
-    - **IP Address** - *10.21.XX.42*
-    - Select **Add**
+**- PLN Server**
 
-  Select the **Xtract-VM** VM and click **Power on**.
+.. figure:: images/PLN1.png
 
-  Once the VM has started, click **Launch Console**.
+.. figure:: images/PLN2.png
 
-Example markup for creating a VM in Prism Central:
+**- OTM Server**
 
-  In **Prism Central > Explore > VMs**, click **Create VM**.
+.. figure:: images/OTM1.png
 
-  Fill out the following fields and click **Save**:
+.. figure:: images/OTM2.png
 
-  - **Name** - Xtract-VM
-  - **Description** - Xtract for VMs
-  - **vCPU(s)** - 2
-  - **Number of Cores per vCPU** - 2
-  - **Memory** - 4 GiB
-  - Select **+ Add New Disk**
 
-    - **Operation** - Clone from Image Service
-    - **Image** - Xtract-VM
-    - Select **Add**
-  - Remove **CD-ROM** Disk
-  - Select **Add New NIC**
-
-    - **VLAN Name** - Primary
-    - **IP Address** - *10.21.XX.42*
-    - Select **Add**
-
-  Select the **Xtract-VM** VM and click **Actions > Power on**.
-
-  Once the VM has started, click **Actions > Launch console**.
-
-Example markup for creating a Service in Calm:
-
-  In **Application Overview > Services**, click :fa:`plus-circle`.
-
-  Note **Service1** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service. You can rearrange the Service icons on the Workspace by clicking and dragging them.
-
-  Fill out the following fields:
-
-  - **Service Name** - APACHE_PHP
-  - **Name** - APACHE_PHP_AHV
-  - **Cloud** - Nutanix
-  - **OS** - Linux
-  - **VM Name** - APACHE_PHP
-  - **Image** - CentOS
-  - **Device Type** - Disk
-  - **Device Bus** - SCSI
-  - Select **Bootable**
-  - **vCPUs** - 2
-  - **Cores per vCPU** - 1
-  - **Memory (GiB)** - 4
-  - Select :fa:`plus-circle` under **Network Adapters (NICs)**
-  - **NIC** - Secondary
-  - **Crendential** - CENTOS
-
-  Scroll to the top of the **Configuration Panel**, click **Package**.
-
-  Fill out the following fields:
-
-  - **Name** - APACHE_PHP_PACKAGE
-  - **Install Script Type** - Shell
-  - **Credential** - CENTOS
-
-  Copy and paste the following script into the **Install Script** field:
-
-  .. code-block:: bash
-
-     #!/bin/bash
-     set -ex
-     # -*- Install httpd and php
-     sudo yum update -y
-     sudo yum -y install epel-release
-     sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-     sudo yum install -y httpd php56w php56w-mysql
-
-     echo "<IfModule mod_dir.c>
-             DirectoryIndex index.php index.html index.cgi index.pl index.php index.xhtml index.htm
-     </IfModule>" | sudo tee /etc/httpd/conf.modules.d/dir.conf
-
-     echo "<?php
-     phpinfo();
-     ?>" | sudo tee /var/www/html/info.php
-     sudo systemctl restart httpd
-     sudo systemctl enable httpd
-
-  Fill out the following fields:
-
-  - **Uninstall Script Type** - Shell
-  - **Credential** - CENTOS
-
-  Copy and paste the following script into the **Uninstall Script** field:
-
-  .. code-block:: bash
-
-    #!/bin/bash
-    echo "Goodbye!"
-
-  Click **Save**.
-
-Takeaways
-+++++++++
-
-- Here is where we summarize any key takeaways from the module
-- Such as how a Nutanix feature used in the lab delivers value
-- Or highlighting a differentiator
+Lab Time
+++++++++
+Group discussion (30 minutes)
+Review Desing (15 minutes)
