@@ -2,7 +2,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Slides
+  :caption: Oracle Presentation Deck
   :name: _OracleDeck
   :hidden:
 
@@ -11,12 +11,21 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Labs
+  :caption: Oracle Hands on Labs
   :name: _labs
   :hidden:
 
   examplelab1/examplelab1
   examplelab2/examplelab2
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Oracle Design Lab
+    :name: _designlab1
+    :hidden:
+
+    designlab1/designlab1
 
 
 .. toctree::
