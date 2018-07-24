@@ -42,12 +42,11 @@
 Getting Started
 ---------------
 
-This workshop is for quick apply Oracle best practice step by step base on Nutanix Oralce on AHV best practice for SE or partner training.
-I found most of technical persons read the best practice guide but still can’t apply these parameter or settings.
-That why I wrote this workshop material for who doesn't have any Oracle technical background but still want apply Oracle best practice on Nutanix for POC or testing purpose.
-It’s a quick way to apply those best practice. I still suggest you must read our Nutanix best guide to understand why we need to change some parameters and configuration to get best performance.
-After you learned, You can apply this to your POC or when customer want running Oracle on Nutanix.
-In this guide , we didn't mention about how to install a Oracle database.
+This workshop is design for SEs to apply Oracle best practice through a step by step guide. The content is based on Best Practice Guide - Oracle on AHV version 1.3.
+Unless, presented with an working opportunity, most technical person's experience of Oracle on AHV is restricted to just reading through the guide but they have yet experiences applying any of the parameters or settings in a working Oracle to see the effects for themselves.
+This lab is written to a non-Oracle DBA and requires no prior Oracle/DBA skillsets to handling the lab, it’s a quick way to apply those best practice centering around making tweaks to the operating systems, storage and memory settings of Oracle DB. Although reading up the best practise guide is a pre-requisite, following the lab with further reading of the guide could further strengthen the knowledge and appreciation for tweaking and changing the parameters. 
+With the knowledge acquired after this lab, you can apply this to your POC or when a customer needing advice on running Oracle on Nutanix.
+This guide does not cover the installation process of installing a Oracle database.
 If you want learn how to installed a Oracle database , you can find ”how to” in these links.
 
 - Oracle Official Website :
@@ -62,7 +61,7 @@ Lab Environment
 
 -Hardware:
 
-  - Nutanix NX ,HX , XC any platform that Nutanix AOS running inside
+  - Lenovo HX or any supported/certified platform Nutanix AOS running
 
   - Nutanix CE also can be a Lab environment
 
@@ -70,8 +69,7 @@ Lab Environment
 
 -Software :
 
- - Oracle Linux. You can download from Oracle Website. https://www.oracle.com/linux/index.html . If you are install Oracle 11gR2, I
- recommend you use Oracle Linux 6. If you are install Oracle 12cR1 above , I will recommend you use Oracle Linux 7
+ - Oracle Linux. You can download from Oracle Website. https://www.oracle.com/linux/index.html . If you are installing Oracle 11gR2, it is recommended to use Oracle Linux 6 but if you are installing Oracle 12cR1 above , it is recommendded to use Oracle Linux 7
 
  - Oracle database binary. You can download from http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index-092322.html
 
@@ -79,14 +77,14 @@ Lab Environment
 
 Setup Lab
 +++++++++
-After you foundation your Nutanix blocks (How to Foundation Nutanix Block)
-You can watch the video from https://www.nutanix.com/2014/07/15/nutanix-foundation-demo-video-from-bare-metal-to-production-in-minutes/
+To begin from scratch, please foundation your Nutanix blocks (How to Foundation Nutanix Block)
+You can watch the video guide from https://www.nutanix.com/2014/07/15/nutanix-foundation-demo-video-from-bare-metal-to-production-in-minutes/
 
 The foundation software is available on
 
 https://portal.nutanix.com/#/page/foundation/list
 
-After finish foundation, you can create a VM that content Oracle Linux OS. Install Oracle database follow this link -
+After finishing the foundation process, you can create a VM that content Oracle Linux OS. Install Oracle database follow this link -
 
 https://www.youtube.com/watch?v=CwHetPzsQBY
 
