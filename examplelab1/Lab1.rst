@@ -64,19 +64,19 @@ Go to **/home/oracle/swingbemch/bin** , execute the **./swingbench** to run OLTP
 
 .. figure:: images/SW1.png
 
-change the **Connect String** to /Linux666/orcl, Linux666 is hostname , orcl is instance name of Oracle (Adjust by your own environment)
+Change **Connect String** to /Linux666/orcl, Linux666 is hostname , orcl is the instance (Adjust according to your environment)
 
 .. figure:: images/SW2.png
 
-Click the connection test button **“the blue earth”**, testing swingbench client can be successful connect to Database
+Click on the connection test button **“the blue earth”**, when the process is over ,connect to the Database
 
 .. figure:: images/SW3.png
 
-change the Number of user to 350 , Benchmark Run Tim to 10 minutes and Record Statistic After 5 minutes
+Change the number of users to **350**  and Benchmark Run Time to **10** minutes and Record Statistic After to **5** minutes
 
 .. figure:: images/SW4.png
 
-Click the **Distributed Controls** tab, and type the Hostname to Linux666 , username use root , and Password is qaz12345. After input , please try **“Test Connection”**
+Click on the **Distributed Controls** tab, and type in the Hostname as **Linux666** , username use as **root** , and Password as **qaz12345**. Hit **“Test Connection”** after completing the inputs
 
 
 .. figure:: images/SW5.png
@@ -84,11 +84,11 @@ Click the **Distributed Controls** tab, and type the Hostname to Linux666 , user
 
 .. figure:: images/SW6.png
 
-After all set , please click the **Play** the green button.
+When the process is completed , please click the **Play**(green button.)
 
 .. figure:: images/SW7.png
 
-The you can see swingbench start perform OLTP testing .
+Then the OLTP testing begins.
 
 
 .. figure:: images/SW8.png
