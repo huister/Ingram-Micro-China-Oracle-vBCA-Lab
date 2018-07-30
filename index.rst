@@ -11,8 +11,8 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Oracle Hands on Labs
-  :name: Lab1: Using SwingBench for Oracle Performance Testing
+  :caption: Lab1: Using SwingBench for Oracle Performance Testing
+  :name: _examplelab1
   :hidden:
 
   examplelab1/examplelab1
